@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'show' %}
+{% block body %}
+<h1>Show </h1>
+<a href='/'>Home</a>   <a href='/add-comment'>Add comment</a><br>
+
+<table>
+        <tr>
+            <th>{{ knp_pagination_sortable(pagination, 'Author', 'c.aName') }}</th>
+            <th{% if pagination.isSorted('k.created') %} class="sorted"{% endif %}>
+			{{ knp_pagination_sortable(pagination, 'Comment', 'c.text') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Created at', 'c.created') }}</th>
+        </tr>
+
+{% for comment in pagination %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <td>{{ comment.aName }}</td>
+                <td>{{ comment.text }}</td>
+                <td>{{ comment.created | date('Y-m-d') }}</td>
+            </tr>
+{% endfor %}
+</table>
+
+{# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>
+
+
+{% endblock %}
+{% block stylesheets %}
+{% endblock %}

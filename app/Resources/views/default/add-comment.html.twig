@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Add comment' %}
+{% block body %}
+<h1>Add comment</h1>
+<a href='/'>Home</a><br>
+
+<div>
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+</div>
+
+{% endblock %}
+{% block stylesheets %}
+{% endblock %}

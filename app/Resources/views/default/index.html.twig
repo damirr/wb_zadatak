@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Home' %}
+{% block body %}
+<h1>Home</h1>
+<a href='/add-comment'>Add comment</a><br>
+
+<br>Authors:<br>
+{% for names in list %}
+<a href='{{ names.name }}'>{{names.name}}</a><br>
+{% endfor%}
+
+{% endblock %}
+{% block stylesheets %}
+{% endblock %}
